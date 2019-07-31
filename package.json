@@ -4,7 +4,7 @@
   "description": "Implements Astronomical Calculations Found in the Book Practical Astronomy With Your Calculator",
   "main": "",
   "scripts": {
-    "test": "jasmine-node tests/"
+    "test": "jasmine-node spec/"
   },
   "repository": {
     "type": "git",
