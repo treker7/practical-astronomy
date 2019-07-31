@@ -1,9 +1,9 @@
-﻿import { EquatorialCoordinate } from './equatorialCoordinate';
+﻿var { EquatorialCoordinate } = require('./equatorialCoordinate');
 
 /**
  * Class for representing an astronomical object in space.
  */
-export class AstronomicalObject {
+class AstronomicalObject {
     /**
      * Construct an astronomical object.
      * @param {number} rightAscension - the RA in decimal degrees
@@ -24,3 +24,5 @@ export class AstronomicalObject {
         return new EquatorialCoordinate(this.rightAscension, this.declination);
     }
 }
+
+module.exports = AstronomicalObject;

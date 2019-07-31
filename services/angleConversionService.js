@@ -1,7 +1,7 @@
 ﻿/**
  * A class for converting angles to / from degrees, radians, and hours and displaying angles in various formats
  */
-export class AngleConversionService {
+class AngleConversionService {
     /**
      * Convert an angle from radians to degrees.
      * @param {number} angle - the angle in radians
@@ -147,3 +147,5 @@ export class AngleConversionService {
         return (15 * (AngleConversionService.parseDMS(angleHMS)));
     }    
 }
+
+module.exports = AngleConversionService;

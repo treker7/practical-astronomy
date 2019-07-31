@@ -1,7 +1,7 @@
 ﻿/**
  * A class for basic mathematical calculations.
  */
-export class MathService {
+class MathService {
     /**
      * Put an integer x in a range [0, r) by adding/subtracting multiples of r.
      * @param {number} x - the number to put in the range
@@ -35,3 +35,5 @@ export class MathService {
         return (degreesDeltaSquared < Math.pow(degreesRadius, 2));
     }
 }
+
+module.exports = MathService;

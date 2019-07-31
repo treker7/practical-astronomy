@@ -1,7 +1,7 @@
 ﻿/**
  * A class for representing an Equatorial Coordinate
  */
-export class EquatorialCoordinate {
+class EquatorialCoordinate {
     /**
      * Construct an Equatorial Coordinate given right ascension and declination
      * @param {number} rightAscension - the RA in decimal degrees
@@ -12,3 +12,5 @@ export class EquatorialCoordinate {
         this.declination = declination;
     }
 }
+
+module.exports = EquatorialCoordinate;

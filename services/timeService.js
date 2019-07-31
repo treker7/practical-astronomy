@@ -1,10 +1,10 @@
-﻿import { AngleConversionService } from './angleConversionService';
-import { MathService } from './mathService';
+﻿var ACS = require('./angleConversionService');
+var MathService = require('./mathService');
 
 /**
  * A class for computing and converting times in the formats LST, GST, UTC, etc.
  */
-export class TimeService {
+class TimeService {
     /**
      * Get the Local Siderial Time (LST) given the local date and the observer's geographic location.
      * Derived from Practical Astronomy With Your Calculator 4th edition section 14.
@@ -15,7 +15,7 @@ export class TimeService {
     static getLST(geographicCoordinate, localDate) {
         var greenwichSiderealTime = TimeService.getGST(localDate);
 
-        var localSiderealTime = greenwichSiderealTime + AngleConversionService.d2h(geographicCoordinate.longitude);
+        var localSiderealTime = greenwichSiderealTime + ACS.d2h(geographicCoordinate.longitude);
         localSiderealTime = MathService.putInRange(localSiderealTime, 24);
 
         return localSiderealTime;
@@ -126,3 +126,5 @@ export class TimeService {
         return jd;
     }
 }
+
+module.exports = TimeService;

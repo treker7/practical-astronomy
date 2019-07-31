@@ -1,7 +1,7 @@
 ﻿/**
  * A class for representing the rise and set times in decimal hours of an astronomical object.
  */
-export class RiseAndSetTime {
+class RiseAndSetTime {
     /**
      * Construct a RiseAndSetTime object from the given rise and set times
      * @param {number} riseTime - the rise time in decimal hours
@@ -12,3 +12,5 @@ export class RiseAndSetTime {
         this.setTime = setTime;
     }
 }
+
+module.exports = RiseAndSetTime;

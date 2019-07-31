@@ -1,7 +1,7 @@
 ﻿/**
  * A class for representing an ecliptic coordinate (i.e. a positon in the solar system)
  */
-export class EclipticCoordinate {
+class EclipticCoordinate {
     /**
      * Construct an Ecliptic Coordinate given ecliptic lat/long
      * @param {number} latitude - the ecliptic latitude in decimal degrees
@@ -12,3 +12,5 @@ export class EclipticCoordinate {
         this.longitude = longitude;
     }
 }
+
+module.exports = EclipticCoordinate;

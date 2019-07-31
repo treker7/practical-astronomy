@@ -1,10 +1,10 @@
-﻿import moment from './../../../../../node_modules/moment/moment';
+﻿var moment = require('../node_modules/moment/moment');
 
-import { MathService } from './mathService';
-import { AngleConversionService as ACS } from './angleConversionService';
-import { CoordinateSystemService } from './coordinateSystemService';
-import { EclipticCoordinate } from '../../models/astronomy/eclipticCoordinate';
-import { AstronomicalObject } from '../../models/astronomy/astronomicalObject';
+var MathService = require('./mathService');
+var ACS = require('./angleConversionService');
+var CoordinateSystemService = require('./coordinateSystemService');
+var EclipticCoordinate = require('../models/eclipticCoordinate');
+var AstronomicalObject = require('../models/astronomicalObject');
 /**
  * A class for calculating the sun's positions and rise/set times.
  */
@@ -108,7 +108,7 @@ class Sun extends AstronomicalObject {
         // step 1
         var zeroTime = localDate.clone().hour(0).minute(0).second(0).millisecond(0);
         var noon = zeroTime.clone().add(12, "hours");
-        var sunEquatorialCoordinatesAtNoon = sun.getEquatorialCoordinate(noon);
+        var sunEquatorialCoordinatesAtNoon = this.getEquatorialCoordinate(noon);
         // step 2
         var meanSunRiseAndSetTime = CoordinateSystemService.getRiseAndSetTime(sunEquatorialCoordinatesAtNoon, geographicCoordinate, noon, sunVerticalShift);
 
@@ -148,5 +148,4 @@ class Sun extends AstronomicalObject {
 }
 
 // export singleton
-var sun = new Sun();
-export { sun };
+module.exports = new Sun();

@@ -1,7 +1,7 @@
 ﻿/**
  * Class for representing the observed position of an object on the celestial sphere.
  */
-export class HorizonCoordinate {
+class HorizonCoordinate {
     /**
      * Construct a horizon coordinate given az/alt.
      * @param {number} azimuth - the azimuth in decimal degrees
@@ -12,3 +12,5 @@ export class HorizonCoordinate {
         this.altitude = altitude;
     }
 }
+
+module.exports = HorizonCoordinate;

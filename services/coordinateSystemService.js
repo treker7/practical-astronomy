@@ -1,16 +1,16 @@
-﻿import moment from './../../../../../node_modules/moment/moment';
+﻿var moment = require('../node_modules/moment/moment');
 
-import { HorizonCoordinate } from './../../models/astronomy/horizonCoordinate';
-import { EquatorialCoordinate } from './../../models/astronomy/equatorialCoordinate';
-import { AngleConversionService as ACS } from './angleConversionService';
-import { TimeService } from './timeService'; 
-import { MathService } from './mathService';
-import { RiseAndSetTime } from '../../models/astronomy/riseAndSetTime';
+var HorizonCoordinate = require('../models/horizonCoordinate');
+var EquatorialCoordinate = require('../models/equatorialCoordinate');
+var ACS = require('./angleConversionService');
+var TimeService = require('./timeService'); 
+var MathService = require( './mathService');
+var RiseAndSetTime = require('../models/riseAndSetTime');
 
 /**
  * Class to convert between astronomical coordinate systems.
  */
-export class CoordinateSystemService {
+class CoordinateSystemService {
     /**
      * Convert an equatorial coordinate to a horizon coordinate given a geographic posion and date/time.
      * Derived from Practical Astronomy With Your Calculator 4th edition section 25
@@ -176,3 +176,5 @@ export class CoordinateSystemService {
         return horizonCoordinates;
     }
 }
+
+module.exports = CoordinateSystemService;

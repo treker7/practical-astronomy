@@ -1,11 +1,11 @@
-﻿import moment from './../../../../../node_modules/moment/moment';
+﻿var moment = require('../node_modules/moment/moment');
 
-import { sun } from './sunService';
-import { CoordinateSystemService } from './coordinateSystemService';
-import { AngleConversionService as ACS } from './angleConversionService';
-import { MathService } from './mathService';
-import { EclipticCoordinate } from '../../models/astronomy/eclipticCoordinate';
-import { AstronomicalObject } from '../../models/astronomy/astronomicalObject';
+var sun = require('./sunService');
+var CoordinateSystemService = require('./coordinateSystemService');
+var ACS = require('./angleConversionService');
+var MathService = require('./mathService');
+var EclipticCoordinate = require('../models/eclipticCoordinate');
+var AstronomicalObject = require('../models/astronomicalObject');
 
 /**
  * A class for calculating the position and phases of the moon.
@@ -129,5 +129,4 @@ class Moon extends AstronomicalObject {
 }
 
 // export singleton
-var moon = new Moon();
-export { moon };
+module.exports = new Moon();

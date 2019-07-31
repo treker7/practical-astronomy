@@ -1,7 +1,7 @@
 ﻿/**
  * Class for representing a position on the Earth's surface.
  */
-export class GeographicCoordinate {
+class GeographicCoordinate {
     /**
      * Construct a geographic coordinate given lat/long.
      * @param {number} latitude - the latitude in decimal degrees
@@ -12,3 +12,5 @@ export class GeographicCoordinate {
         this.longitude = longitude;
     }
 }
+
+module.exports = GeographicCoordinate;
