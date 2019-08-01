@@ -6,7 +6,7 @@ Installation:
 npm install --save-dev practical-astronomy
 
 
-Useage:
+Usage:
 
 var sun = require('./practical-astronomy/services/sun');
 var moon = require('./practical-astronomy/services/moon');

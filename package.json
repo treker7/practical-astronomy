@@ -2,7 +2,6 @@
   "name": "@treker7/practical-astronomy",
   "version": "1.0.0",
   "description": "Implements Astronomical Calculations Found in the Book Practical Astronomy With Your Calculator",
-  "main": "",
   "scripts": {
     "test": "jasmine-node spec/"
   },
