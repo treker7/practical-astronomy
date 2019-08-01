@@ -4,6 +4,8 @@
 
 var moment = require("../node_modules/moment");
 
+var expectToBeWithin = require('./jasmine-helper');
+
 var sun = require("../services/sunService");
 var EquatorialCoordinate = require("../models/equatorialCoordinate");
 var GeographicCoordinate = require("../models/geographicCoorindate");
@@ -21,8 +23,8 @@ describe("SunService", function () {
         const expectedPosition = new EquatorialCoordinate(toDecimalDegreesFromHourMinSec(8, 23, 34), toDecimalDegreesFromDegMinSec(19, 21, 10));
 
         var actualPosition = sun.getEquatorialCoordinate(localDate);
-        expect(actualPosition.rightAscension).toBeCloseTo(expectedPosition.rightAscension, 2);
-        expect(actualPosition.declination).toBeCloseTo(expectedPosition.declination, 2);
+        expectToBeWithin(actualPosition.rightAscension, expectedPosition.rightAscension, .01);
+        expectToBeWithin(actualPosition.declination, expectedPosition.declination, .01);
     });
 
     // From Practical Astronomy With Your Calculator 4th edition section 49
@@ -33,8 +35,8 @@ describe("SunService", function () {
         const expectedRiseAndSetTime = new RiseAndSetTime(toDecimalHours(6, 6), toDecimalHours(17, 43));
 
         var actualRiseAndSetTimes = sun.getRiseAndSetTime(geographicCoordinate, localDate);
-        expect(actualRiseAndSetTimes.riseTime).toBeCloseTo(expectedRiseAndSetTime.riseTime, 1);
-        expect(actualRiseAndSetTimes.setTime).toBeCloseTo(expectedRiseAndSetTime.setTime, 1);
+        expectToBeWithin(actualRiseAndSetTimes.riseTime, expectedRiseAndSetTime.riseTime, .1);
+        expectToBeWithin(actualRiseAndSetTimes.setTime, expectedRiseAndSetTime.setTime, .1);
     });
 
     // From http://aa.usno.navy.mil/data/docs/AltAz.php
@@ -45,8 +47,8 @@ describe("SunService", function () {
         const expectedRiseAndSetTime = new RiseAndSetTime(toDecimalHours(6, 49), toDecimalHours(19, 55));
                
         var actualRiseAndSetTimes = sun.getRiseAndSetTime(geographicCoordinate, localDate);
-        expect(actualRiseAndSetTimes.riseTime).toBeCloseTo(expectedRiseAndSetTime.riseTime, 2);
-        expect(actualRiseAndSetTimes.setTime).toBeCloseTo(expectedRiseAndSetTime.setTime, 2);
+        expectToBeWithin(actualRiseAndSetTimes.riseTime, expectedRiseAndSetTime.riseTime, .1);
+        expectToBeWithin(actualRiseAndSetTimes.setTime, expectedRiseAndSetTime.setTime, .1);
     });
 
     it("Calculates sun rise and set times correctly for 04/07/2018 in GCC", function () {
@@ -56,8 +58,8 @@ describe("SunService", function () {
         const expectedRiseAndSetTime = new RiseAndSetTime(toDecimalHours(6, 52), toDecimalHours(19, 52));
 
         var actualRiseAndSetTimes = sun.getRiseAndSetTime(gccGeographicCoordinate, localDate);
-        expect(actualRiseAndSetTimes.riseTime).toBeCloseTo(expectedRiseAndSetTime.riseTime, 1);
-        expect(actualRiseAndSetTimes.setTime).toBeCloseTo(expectedRiseAndSetTime.setTime, 1);
+        expectToBeWithin(actualRiseAndSetTimes.riseTime, expectedRiseAndSetTime.riseTime, .1);
+        expectToBeWithin(actualRiseAndSetTimes.setTime, expectedRiseAndSetTime.setTime, .1);
     });
 
     // From Practical Astronomy With Your Calculator 4th edition section 50
@@ -68,7 +70,7 @@ describe("SunService", function () {
         const expectedTwilightDuration = 2.133411;
 
         var actualTwilightDuration = sun.getTwilightTime(geographicCoordinate, localDate, 108);
-        expect(actualTwilightDuration).toBeCloseTo(expectedTwilightDuration, 4);
+        expectToBeWithin(actualTwilightDuration, expectedTwilightDuration, .0001);
     });
 
     // angle conversion functions

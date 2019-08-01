@@ -4,6 +4,8 @@
 
 var moment = require("./../node_modules/moment");
 
+var expectToBeWithin = require('./jasmine-helper');
+
 var moon = require("../services/moonService");
 var CoordinateSystemService = require("../services/coordinateSystemService");
 var GeographicCoordinate = require("../models/geographicCoorindate");
@@ -22,8 +24,8 @@ describe("MoonService", function () {
         const expectedEquatorialCoordinate = new EquatorialCoordinate(toDecimalDegreesFromHourMinSec(14, 12, 42), -1 * toDecimalDegreesFromDegMinSec(11, 31, 38));
 
         var actualEquatorialCoordinate = moon.getEquatorialCoordinate(localDate);
-        expect(actualEquatorialCoordinate.rightAscension).toBeCloseTo(expectedEquatorialCoordinate.rightAscension, 2);
-        expect(actualEquatorialCoordinate.declination).toBeCloseTo(expectedEquatorialCoordinate.declination, 2);
+        expectToBeWithin(actualEquatorialCoordinate.rightAscension, expectedEquatorialCoordinate.rightAscension, .01);
+        expectToBeWithin(actualEquatorialCoordinate.declination, expectedEquatorialCoordinate.declination, .01);
     });
 
     // From http://aa.usno.navy.mil/data/docs/AltAz.php
@@ -35,8 +37,8 @@ describe("MoonService", function () {
         var moonEquatorialCoordinate = moon.getEquatorialCoordinate(localDate);
         var actualHorizonCoordinate = CoordinateSystemService.convertFromEquatorialToHorizonCoordinate(moonEquatorialCoordinate, geographicCoordinate, localDate);
 
-        expect(actualHorizonCoordinate.altitude).toBeCloseTo(expectedHorizonCoordinate.altitude, 1);
-        expect(actualHorizonCoordinate.azimuth).toBeCloseTo(expectedHorizonCoordinate.azimuth, 1);
+        expectToBeWithin(actualHorizonCoordinate.altitude, expectedHorizonCoordinate.altitude, 1);
+        expectToBeWithin(actualHorizonCoordinate.azimuth, expectedHorizonCoordinate.azimuth, 1);
     });
 
     // From Practical Astronomy With Your Calculator 4th edition section 67.
@@ -45,7 +47,7 @@ describe("MoonService", function () {
         const expectedPhase = .225;
 
         var actualPhase = moon.getPhase(localDate);
-        expect(actualPhase).toBeCloseTo(expectedPhase, 3);
+        expectToBeWithin(actualPhase, expectedPhase, 3);
     });
 
     // From http://aa.usno.navy.mil/data/docs/AltAz.php
@@ -54,7 +56,7 @@ describe("MoonService", function () {
         const expectedPhase = .200;
 
         var actualPhase = moon.getPhase(localDate);
-        expect(actualPhase).toBeCloseTo(expectedPhase, 2);
+        expectToBeWithin(actualPhase, expectedPhase, .01);
     });
 
     // angle conversion functions
