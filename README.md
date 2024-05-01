@@ -1,12 +1,12 @@
-#Practical Astronomy - Algorithms Implemented from the Book Practical Astronomy With Your Calculator
+Practical Astronomy - Algorithms Implemented from the Book Practical Astronomy With Your Calculator
 
 
-##Installation:
+Installation:
 
 npm install --save-dev practical-astronomy
 
 
-##Usage:
+Examples:
 
 var sun = require('./practical-astronomy/services/sun');
 var moon = require('./practical-astronomy/services/moon');
