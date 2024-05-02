@@ -8,6 +8,7 @@ npm install --save-dev practical-astronomy
 
 Examples:
 
+```
 var sun = require('./practical-astronomy/services/sun');
 var moon = require('./practical-astronomy/services/moon');
 var GeographicCoordinate = require("../models/geographicCoorindate");
@@ -21,3 +22,4 @@ console.log('The sun will set at: ' + riseAndSetTimes.setTime);
 
 var moonPhase = moon.getPhase(myTime);
 console.log('The current moon phase is: ' + moonPhase);
+```
