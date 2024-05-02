@@ -3,7 +3,7 @@ Practical Astronomy - Algorithms Implemented from the Book Practical Astronomy W
 
 Installation:
 
-npm install --save-dev practical-astronomy
+`npm install --save-dev practical-astronomy`
 
 
 Examples:
