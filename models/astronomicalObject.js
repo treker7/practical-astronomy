@@ -1,4 +1,4 @@
-﻿var { EquatorialCoordinate } = require('./equatorialCoordinate');
+﻿var EquatorialCoordinate = require('./equatorialCoordinate');
 
 /**
  * Class for representing an astronomical object in space.
