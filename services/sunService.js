@@ -108,7 +108,7 @@ class Sun extends AstronomicalObject {
         // step 1
         var zeroTime = localDate.clone().hour(0).minute(0).second(0).millisecond(0);
         var noon = zeroTime.clone().add(12, "hours");
-        var sunEquatorialCoordinatesAtNoon = this.getEquatorialCoordinate(noon);
+        var sunEquatorialCoordinatesAtNoon = getEquatorialCoordinate(noon);
         // step 2
         var meanSunRiseAndSetTime = CoordinateSystemService.getRiseAndSetTime(sunEquatorialCoordinatesAtNoon, geographicCoordinate, noon, sunVerticalShift);
 
@@ -125,7 +125,7 @@ class Sun extends AstronomicalObject {
      */
     getTwilightTime(geographicCoordinate, localDate, twilightAngle = 108) {
         // step 1
-        var currEquatorialCoordinate = this.getEquatorialCoordinate(localDate.clone().hour(12).minute(0).second(0).millisecond(0));
+        var currEquatorialCoordinate = getEquatorialCoordinate(localDate.clone().hour(12).minute(0).second(0).millisecond(0));
         var latitude = ACS.d2r(geographicCoordinate.latitude);
         var declination = ACS.d2r(currEquatorialCoordinate.declination);
 
