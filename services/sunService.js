@@ -1,4 +1,4 @@
-﻿var moment = require('../node_modules/moment/moment');
+﻿var moment = require('moment');
 
 var MathService = require('./mathService');
 var ACS = require('./angleConversionService');
