@@ -148,4 +148,5 @@ class Sun extends AstronomicalObject {
 }
 
 // export singleton
-module.exports = new Sun();
+var sun = new Sun();
+module.exports = sun;
